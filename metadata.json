@@ -1,0 +1,7 @@
+{
+  "name": "ClinicOS Enterprise",
+  "description": "Production-ready, multi-tenant clinic management system with zero-trust RBAC, patient records, appointments, and client-side prescription & invoice generation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
