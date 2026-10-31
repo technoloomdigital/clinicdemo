@@ -63,8 +63,8 @@ export function readCookie(header: string | undefined, name: string): string | u
 export function cookieOptions() {
   return {
     httpOnly: true, // JavaScript can never read the cookie (XSS can't steal it)
-    secure: config.isProd, // https only in production
-    sameSite: 'strict' as const, // never sent on cross-site requests (CSRF defence)
+    secure: true, // https only in production
+    sameSite: 'none' as const, // never sent on cross-site requests (CSRF defence)
     path: '/', // required for the __Host- prefix
     maxAge: config.session.absoluteMs,
   };

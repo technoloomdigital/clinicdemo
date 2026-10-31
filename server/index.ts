@@ -1,10 +1,4 @@
-/**
- * ClinicOS backend (Express).
- *
- * This folder is Node-only: it is NOT inside `src/` or `public/`, it is never
- * bundled by Vite, and it is blocked from the Vite dev server (see vite.config.ts).
- * In production only the compiled `dist/` frontend is served — never source code.
- */
+import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
 import helmet from 'helmet';
@@ -63,6 +57,14 @@ app.use(
     hsts: config.forceHttps ? undefined : false,
   }),
 );
+app.use(cors({
+  origin: 'https://clinicdemo-mauve.vercel.app/',
+  credentials: true,
+}));
+
+app.use(express.json({ limit: '100kb' }));
+
+app.use(loadSession);
 app.use(express.json({ limit: '100kb' }));
 app.use(loadSession);
 
